@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passagem de dados</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h1 v-bind:title="mensagemTag"> {{ mensagem }} </h1>
+        <h3>Essa mensagem com caps lock seria assim: {{ mensagem.toUpperCase() }} </h3>
+        <p>Meu nome é {{ pessoa.nome}} e eu tenho {{ pessoa.idade}} </p>
+
+        <span v-html="tag"></span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    mensagem: "Mensagem para ser exibida",
+                    pessoa: {
+                        nome: "Celso",
+                        idade: "36"
+                    },
+                    tag: '<button>Clique aqui</button>',
+                    mensagemTag: 'Essa tag é um título'
+                }
+                
+        })
+
+    </script>
+
+</body>
+</html>

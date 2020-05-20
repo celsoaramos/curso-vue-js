@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchers</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <input type="text" v-model="pais" />
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                   pais: "Brasil"
+                },
+                watch: {
+                    pais: function(novoValor, valorAntigo) {
+                        console.log(novoValor, valorAntigo) ;
+                    }
+                }
+               
+        })
+
+    </script>
+
+</body>
+</html>

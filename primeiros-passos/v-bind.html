@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h2>Acesse o site abaixo</h2>
+        <a v-bind:href="url">Site da HCode</a>
+        <a :href="url">Site da HCode</a>
+
+        <p :[arg]="value">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Magnam cumque numquam recusandae adipisci voluptate nisi, dolorem sapiente possimus. 
+            Illo repellendus possimus fugit ut neque alias fugiat recusandae libero ab laudantium.
+
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    url: "https://www.hcode.com.br",
+                    arg: 'title',
+                    value:'Paragrafo'
+                },
+        })
+
+    </script>
+
+</body>
+</html>

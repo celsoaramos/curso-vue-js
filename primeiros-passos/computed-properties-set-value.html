@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedade armazenadas - definindo valor</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h2>Nome: {{ pessoa.nome }}</h2>
+        <h2>Nome Completo Computed: {{ nomeCompleto }}</h2>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                   pessoa: {
+                       nome: 'Celso',
+                       sobrenome: 'Ramos'
+                   }
+                },
+                computed: {
+                    nomeCompleto: {
+
+                        get: function() {
+                            return `${this.pessoa.nome} ${this.pessoa.sobrenome}`;
+                        },
+                        set: function(novoValor) {
+                            let name = novoValor.split(' ');
+                            this.pessoa.nome = name[0];
+                            this.pessoa.sobrenome = name[1];
+                        }
+                        
+                    }
+                       
+                }
+                
+        })
+
+    </script>
+
+</body>
+</html>

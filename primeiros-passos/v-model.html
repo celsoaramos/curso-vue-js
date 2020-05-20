@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h3 v-bind:style=" { fontSize: tamanhoTexto + 'px' } ">HCode Treinamentos</h3>
+        <input type="text" placeholder="Digite o tamanho do texto" v-model="tamanhoTexto" />
+
+        <h4 v-bind:style="{ color: corTexto }"> Que a força esteja com você</h4>
+        <input type="text" placeholder="Digite a cor do texto" v-model="corTexto" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    tamanhoTexto: 30,
+                    corTexto: 'red'
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

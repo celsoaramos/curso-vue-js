@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+</head>
+<body>
+    
+    <div id="app">
+
+      <p @click="mensagemReversa">{{ mensagem }}</p>
+      <!-- OU -->
+      <p v-on:click="mensagemReversa">{{ mensagem }}</p>
+
+      <h4 @[eventname]="mensagemReversa">{{ mensagem }}</h4>
+      <!-- OU -->
+      <h4 v-on:[eventname]="mensagemReversa">{{ mensagem }}</h4>
+
+
+        <input type="text" placeholder="Filtrar pessoas" v-on:keyup="filtrarPessoas" />
+        <ul>
+            <li v-for="pessoa in listaPessoasFiltradas">
+                {{ pessoa }}
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    mensagem: 'VueJS é Irado !',
+                    eventname: 'click',
+                    listaPessoas: ['Celso', 'Gabi', 'Joao', 'Maria'],
+                    listaPessoasFiltradas: []
+                },
+                methods: {
+                    mensagemReversa() {
+                        this.mensagem = this.mensagem.split('').reverse().join('');
+                    },
+
+                    filtrarPessoas(event) {
+                        this.listaPessoasFiltradas = this.listaPessoas.filter(nome => {
+                            return nome.toUpperCase().includes(event.target.value.toUpperCase());
+                        })
+                    }
+                },
+                created() {
+                    this.listaPessoasFiltradas = this.listaPessoas
+                }
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+// criar projeto usando o vue cli
+vue create nomeProjeto
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// para rodar o servidor
+npm run serve
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ciclo de vida do VUE:
+1 - beforeCreate() -> Executada assim que a instância Vue é criada, mas antes de os dados, eventos e watchers estarem disponíveis
+2 - created() -> Executada assim que a instância Vue é criada. Tem à disposição os recursos básicos: dados, computed properties, events, watchers, etc. Contudo, a aplicação ainda não foi montada
+3 - beforeMount() -> Executada um pouco antes do processo de montagem da aplicação começar
+4 - mounted() -> Chamada assim que o processo de montagem é finalizado, já tem acesso à propriedade this.el, para manipular o componente
+5 - beforeUpdate() -> Chamada quando os dados são atualizados na página, mas antes de essas mudanças serem refletidas no HTML
+6 - updated() -> Chamada assim que o HTML é alterado devido à mudança de dados na instância Vue
+7 - beforeDestroy() -> Chamada antes de a aplicação ser finalizada, ou destruída
+8 - destroyed() -> Chamada assim que a instância Vue é destruída. Nesse momento não é possível mais ter acesso aos recursos do Vue
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// funções usadas em componentes:
+1 - activated() -> Chamada quando um componente com a estrutura keep-alive é ativado
+2 - deactivated() -> Chamada quando um componente com a estrutura keep-alive é desativado
+3 - errorCaptured() -> Chamada quando ocorre um erro em algum componente (Novidade versão 2.5 do Vue)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Method x computed
+Method é chamado toda vez 
+Computed Properties é chamado uma única vez porque guarda cache.
+Em uma tela com 4 chamadas a method e 4 chamadas a computed properties ambas com console.log, perceberemos que 
+o method será chamado 4 vezes e o computed uma vez.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Filters
+Filtros só mudam para a visualização do usuário. Não altera o valor da propriedade.
+
+// npm com filters interessantes para o VueJS
+https://www.npmjs.com/package/vue2-filters
+<script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Watchers
+É usado para vigiar a mudança de valor de uma propriedade
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// perguntas e respostas
+Para que serve o v-model?
+R: Para que possamos associar um componente de formulário a uma variável gerenciada pelo VUE.
+
+Quais as abreviações das diretivas v-bind e v-on?
+R: v-bind = :
+   v-on = @
+
+Qual a principal diferença entre props e eventos?
+R: props: são parâmetros que podemos passar para os componente;
+   eventos: são ações que o componente pode disparar.
+
+Porque data deve sempre ser uma função?
+R: Para que cada componente tenha suas variáveis de forma individuais. De outra forma todos os componentes teriam o mesmo valor na variável.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------

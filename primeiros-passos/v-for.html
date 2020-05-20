@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h2>Cidades do Brasil com ARRAY</h2>
+        <ol>
+            <li v-for="cidade in cidadesArray">
+                {{ cidade }}
+            </li>
+        </ol>
+
+        <h2>Cidades do Mundo com objetos</h2>
+        <ol>
+            <li v-for="item in cidadesObjeto">
+                {{ item.cidade }} - {{ item.pais}}
+            </li>
+        </ol>
+
+        <h2>Grandes filmes da historia</h2>
+        <ul>
+            <li v-for="(item, index) in filmes">
+               {{ index }}. {{ item }}
+            </li>
+        </ul>
+
+        <h2>Empresa</h2>
+        <p v-for="(value, key, index) in empresa">
+            {{ key }}: {{ value }} 
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    cidadesArray: ['RJ', 'SP', 'Curitiba'],
+                    filmes: ['Star Wars', 'Jurassic Park', 'De volta para o futuro'],
+                    empresa: {
+                        nome: 'Facebook',
+                        ano: 2004,
+                        presidente: 'Mark'
+                    },
+                    cidadesObjeto: [
+                        {
+                            cidade: 'Rio',
+                            pais: 'Brasil'
+                        }, 
+                        {
+                            cidade: 'Curitiba',
+                            pais: 'Brasil'
+                        }, 
+                        {
+                            cidade: 'Nova York',
+                            pais: 'EUA'
+                        }, 
+                        {
+                            cidade: 'Londres',
+                            pais: 'Inglaterra'
+                        }
+                    ],
+                    
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

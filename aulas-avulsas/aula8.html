@@ -1,0 +1,80 @@
+<html>
+    <head>
+
+        <title>Teste</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+           
+            <lista v-for='itens in listaItens' v-bind:todo="itens"></lista>
+
+            <input @keyup.enter="mostre('hello aaaa')" />
+
+            <button @click="mostre('hello aaaa')" >Teste </button>
+            
+            <br/><br/>
+            <select v-model="clienteSelecionado" >
+                <option v-for='cliente in listaClientes' v-bind:value="cliente.id" >
+                    {{ cliente.nome }}
+                </option>
+            </select>
+            {{ clienteSelecionado }}
+            
+            <br/>
+            <p>CHECKBOX</p>
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="jack" value="Jack" v-model="nomesMarcados"     /><br/>
+            <label for="jack">Mike</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="nomesMarcados"     /><br/>
+            <label for="jack">Suzan</label>
+            <input type="checkbox" id="suzan" value="Suzan" v-model="nomesMarcados"     /><br/>
+            <span>Nomes Marcados: {{ nomesMarcados }}</span>
+
+            <br/>
+            <p>RADIO BUTTON</p>
+            <label for="jack2">Jack</label>
+            <input type="radio" id="jack2" value="Jack2" v-model="nomeMarcado"     /><br/>
+            <label for="jack2">Mike</label>
+            <input type="radio" id="mike2" value="Mike2" v-model="nomeMarcado"     /><br/>
+            <label for="jack2">Suzan</label>
+            <input type="radio" id="suzan2" value="Suzan2" v-model="nomeMarcado"     /><br/>
+            <span>Nomes Marcados: {{ nomeMarcado }}</span>
+        </div>
+
+        <script>
+            const lista = Vue.component('lista', {
+                    props: ['todo'],
+                    template: '<li>{{ todo.texto }}</li>',
+                })
+
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        listaItens: [ 
+                                        { texto: 'oi 01', size: 10 },
+                                        { texto: 'oi 02', size: 20 },
+                                        { texto: 'oi 03', size: 30 }
+                                    ],
+                        nomesMarcados: [],
+                        nomeMarcado: '',
+                        listaClientes: [
+                                        {id: 1, nome:'Jack'},
+                                        {id: 2, nome:'John'},
+                                        {id: 3, nome:'Suzan'}
+                                    ],
+                        clienteSelecionado: ''
+                    }
+                },
+                methods: {
+                    mostre(msg) {
+                        alert(msg);
+                    }
+                }
+            })
+
+        </script>
+    </body>
+</html>

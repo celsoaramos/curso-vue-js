@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if e v-else</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h1 v-if="mostrar">HCode Treinamentos</h1>
+        <h3 v-if="tickets >= 50" key="disponivel">Há ingressos disponíveis</h3>
+        <h3 v-else-if="tickets >= 1" key="quase-acabando">Quase acabando</h3>
+        <h3 v-else  key="acabou">Os ingressos acabaram</h3>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    mostrar: true,
+                    tickets: 100
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

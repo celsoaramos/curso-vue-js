@@ -1,0 +1,49 @@
+<html>
+    <head>
+
+        <title>Teste</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <formulario />
+        </div>
+
+        <script>
+            // dessa forma estamos importando local no arquivo
+            const campos = {
+                template: '<input type="text" value="teste3">',
+            };
+
+            const botao = {
+                template: '<button type="button">botão</button>',
+            };
+            
+
+            const formulario = {
+                template:   '<div>' +
+                            '  <campos />' +
+                            '  <botao />' +
+                            '</div>',
+                components: {
+                    campos,
+                    botao,
+                },
+            }
+
+            const app = new Vue({
+                el: '#app',
+                components: {
+                    // o primeiro valor 'campos' é para usar como tag <campos />
+                    // o segundo valor 'constCampos' é a constante que possuirá o template
+                    // 'formulario': constformulario,
+                    
+                    // podemos dar o mesmo nome para ambos, dessa forma ficará:
+                    formulario,
+                }
+            });
+
+        </script>
+    </body>
+</html>
