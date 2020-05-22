@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-diretivas-customizadas</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h4 v-caixa-alta>{{ nome }}</h4>
+
+        <h2 v-primeira_maiuscula>hello world super mario</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        Vue.directive('caixa-alta', {
+            inserted(elemento) {
+                elemento.innerText = elemento.innerText.toUpperCase();
+            }
+        })
+
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    nome: 'hcode'
+                },
+                directives: {
+
+                    primeira_maiuscula: {
+
+                        bind(elemento) {
+                            console.log("BIND - Fui vinculado a um elemento")
+                        },
+
+                        inserted(elemento) {
+                            console.log("INSERTED - o elemento foi inserido na página")
+
+                            let letras = elemento.innerText.split(' ');
+
+                            letras.forEach((text, index) => {
+                                letras[index] = text.charAt(0).toUpperCase() + text.slice(1);
+                            });
+
+                            elemento.innerText = letras.join(' ');
+                        }
+                    }
+
+                }
+                
+        })
+
+    </script>
+
+</body>
+</html>

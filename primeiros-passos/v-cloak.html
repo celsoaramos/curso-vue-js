@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak</title>
+
+    <style>
+
+        [v-cloak] {
+            display: none
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h4 v-cloak> {{ nome }} </h4>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+
+        setTimeout(() => {
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    nome: 'Han Solo'
+                },
+                
+            })
+        }, 3000);
+
+       
+
+    </script>
+
+</body>
+</html>

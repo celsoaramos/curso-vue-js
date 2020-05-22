@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-pre</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h1 v-pre>{{ mensagem }}</h1>
+
+        <p v-on:click="alerta" v-pre >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem eligendi 
+            voluptatem officiis asperiores accusamus in ab illum corrupti unde culpa, quam nostrum pariatur, animi, 
+            facilis saepe labore quas aspernatur qui!</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    mensagem: "Nao funciona pq é v-pre"
+                },
+                methods: {
+                    alerta() {
+                        alert('olá mundo');
+                    }
+                }
+        })
+
+    </script>
+
+</body>
+</html>
