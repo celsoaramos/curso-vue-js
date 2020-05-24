@@ -11,7 +11,9 @@
 
         <h4 v-caixa-alta>{{ nome }}</h4>
 
-        <h2 v-primeira_maiuscula>hello world super mario</h2>
+        <h2 v-primeira_maiuscula>hello world {{ nome }}</h2>
+
+        <h2 v-customizada>{{ nome }}</h2>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -27,30 +29,42 @@
         const app = new Vue({
                 el: '#app',
                 data: {
-                    nome: 'hcode'
+                    nome: 'super mario'
                 },
                 directives: {
 
                     primeira_maiuscula: {
 
-                        bind(elemento) {
+                        bind(el) {
                             console.log("BIND - Fui vinculado a um elemento")
                         },
 
-                        inserted(elemento) {
+                        inserted(el) {
                             console.log("INSERTED - o elemento foi inserido na página")
 
-                            let letras = elemento.innerText.split(' ');
+                            let letras = el.innerText.split(' ');
 
                             letras.forEach((text, index) => {
                                 letras[index] = text.charAt(0).toUpperCase() + text.slice(1);
                             });
 
-                            elemento.innerText = letras.join(' ');
+                            el.innerText = letras.join(' ');
+                        },
+
+                        update(el) {
+                            console.log('UPDATE - O elemento foi atualizado');
+                        },
+                        
+                        unbind(el) {
+                            console.log('UNBIND - O elemento foi desvinculado');
+                        },
+
+                        componentUpdated(el) {
+                            console.log("COMPONENT - o component foi atualizado");
                         }
                     }
 
-                }
+                },
                 
         })
 
