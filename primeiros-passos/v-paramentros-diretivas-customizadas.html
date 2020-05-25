@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-diretivas-customizadas</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <!-- REPARAR NA ASPAS SIMPLES PARA INFORMAR QUE É STRING-->
+        <h2 v-customizada:parametro.mod1.mod2="'Informação'">{{ nome }}</h2>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+      
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    nome: 'super mario'
+                },
+                directives: {
+
+                    customizada: {
+                        inserted(el, binding, vnode) {
+                            console.log(el);
+                            console.log(binding);
+                            console.log(vnode);
+                            el.style.color = 'red';
+                        },
+
+                        update(el, binding, vnode, oldvnode) {
+                            console.log(vnode);
+                            console.log(oldvnode);
+                            el.style.textDecoration = 'underline';
+                        }
+                    }
+
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

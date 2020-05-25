@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-diretivas-customizadas</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <!-- dessa forma, recuperamos o valor pelo binding.value -->
+        <h2 v-customizada="{ direcao: argumento, distancia }">{{ nome }}</h2>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+      
+
+        function setDirecao(el, binding) {
+            el.style.margin = 0;
+
+            let direcao = binding.value.direcao.toLowerCase();
+            let valor = binding.value.distancia;
+
+            switch(direcao) {
+
+                case 'left':
+                case 'right':
+                case 'bottom':
+                case 'top':
+
+                    let novaDirecao = direcao.charAt(0).toUpperCase() + direcao.slice(1);
+
+                    eval(`el.style.margin${novaDirecao} = valor + 'px'`);
+
+                break;
+
+                default:
+                    console.error("informe uma direcao valida");
+            }
+
+
+            console.log(el);
+            console.log(binding);
+        }
+
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    nome: 'super mario',
+                    argumento: 'left',
+                    distancia: 150
+                },
+                directives: {
+
+                    customizada: {
+                        bind(el, binding, vnode) {
+                           setDirecao(el, binding);
+                        },
+
+                        update(el, binding, vnode, oldvnode) {
+                            setDirecao(el, binding);
+                        }
+                    }
+
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>
