@@ -4,7 +4,7 @@
   "description": "Curso de VueJS da HCode",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "vue-generate-component": "^3.0.1"
   },
   "devDependencies": {},
