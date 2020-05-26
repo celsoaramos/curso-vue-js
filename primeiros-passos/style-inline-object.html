@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos em linha</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <input type="text" placeholder="Digite o tamanho da fonte" v-model="tamanhoFonte" />
+        <h2 :style="{ fontSize: tamanhoFonte +'px' }">Celso Ramos</h2>
+        
+        <hr>
+
+        <h2>Digite o valor de cada cor</h2>
+        <input type="text" placeholder="Digite o valor do vermelho" v-model="corVermelha"/>
+        <input type="text" placeholder="Digite o valor do verde" v-model="corVerde"/>
+        <input type="text" placeholder="Digite o valor do azul" v-model="corAzul"/>
+
+        <div :style="styleRgb">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, similique rem maxime error harum reprehenderit dicta voluptatibus 
+            quas sequi odio amet rerum deleniti temporibus accusamus molestias eveniet nobis facere provident.
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    tamanhoFonte: 20,
+                    corVermelha: 86,
+                    corVerde: 173,
+                    corAzul: 104,
+                },
+                computed: {
+
+                    styleRgb() {
+                        return {
+                            color: `rgb(${this.corVermelha}, ${this.corVerde}, ${this.corAzul})`
+                        }
+                    }
+                }
+        })
+
+    </script>
+
+</body>
+</html>

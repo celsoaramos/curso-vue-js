@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos em linha - Array</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <a href="https://www.hcode.com.br" :style="[ fontSizeStyle, colorStyle, linkStyle  ]">HCode</a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    fontSizeStyle: {
+                        fontSize: '30px'
+                    },
+                    colorStyle: {
+                        color: 'red'
+                    },
+                    linkStyle: {
+                        textDecoration: 'none'
+                    }
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

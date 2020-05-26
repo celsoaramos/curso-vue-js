@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos em linha - Objeto múltiplos valores</title>
+</head>
+<body>
+    
+    <div id="app">
+
+
+        <div :style="{ display: displayStyle } ">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, similique rem maxime error harum reprehenderit dicta voluptatibus 
+            quas sequi odio amet rerum deleniti temporibus accusamus molestias eveniet nobis facere provident.
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    displayStyle: ['-webkit-box', '-moz-box-flex', '-ms-flexbox']
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

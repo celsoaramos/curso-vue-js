@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos com classes - Objetos</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        .selecionado {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        
+        <table class="table">
+            <tr v-for="cidade in cidades">
+                <td v-bind:class="[classeSelecionada, statusClass]">{{ cidade }}</td>
+
+                <td v-bind:class="[classeSelecionada, error ? statusErrorClass : statusClass ]">{{ cidade }}</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                   cidades: ['Orlando', 'Londres', 'Sidney'],
+                   classeSelecionada: 'selecionado',
+                   statusClass: 'alert-success',
+                   statusErrorClass: 'alert-danger',
+                   error: true
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

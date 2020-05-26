@@ -57,6 +57,29 @@ Em uma tela com 4 chamadas a method e 4 chamadas a computed properties ambas com
 o method será chamado 4 vezes e o computed uma vez.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Animação
+É possível usar animações com as diretivas v-if, v-show e ao trabalhar com componentes
+O Vue possui um componente para transições e animações: <transition></transition>
+
+Classes de entrada:     Classes de saída:
+v-enter                 v-leave
+v-enter-to              v-leave-to
+v-enter-active          v-leave-active
+
+v-enter - Quando a transição começa
+v-enter-to - Quando a transição termina (Novidade versão 2.1.8)
+v-enter-active - Aplicado durante toda a transição
+
+v-leave - Quando a transição começa
+v-leave-to - Quando a transição termina (Novidade versão 2.1.8)
+v-leave-active - Aplicado durante toda a transição
+
+v-enter -> opacity: 0      <== tag escondida
+v-enter-to -> opacity: 1   <== tag aparece
+v-leave -> opacity: 1      <== tag aparece
+v-leave-to -> opacity: 0   <== tag escondida
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Filters
 Filtros só mudam para a visualização do usuário. Não altera o valor da propriedade.
 
