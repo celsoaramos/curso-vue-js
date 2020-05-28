@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação CSS</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+
+        .animacao-primeiro-enter-active {
+            animation: animation_first 1s;
+        }
+
+        .animacao-primeiro-leave-active {
+            animation: animation_first 1s reverse;
+        }
+
+        @keyframes animation_first {
+            from {
+                background: #fff;
+            }
+            to {
+                background: #999
+            }
+        }
+
+
+        /**  */
+
+        .animacao-segundo-enter-active {
+            animation: animation_second 1s;
+        }
+        .animacao-segundo-leave-active {
+            animation: animation_second 1.5s reverse;
+        }
+        @keyframes animation_second {
+            0% {
+                background-color: #fff;
+                font-size: 20px;
+            }
+            50% {
+                background-color: red;
+                font-size: 50px
+            }
+            100% {
+                background-color: #fff;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <transition name="animacao-primeiro">
+            <h2 v-if="show">HCode Treinamentos</h2>
+        </transition>
+
+        <hr>
+
+        <transition name="animacao-segundo">
+            <div v-if="show2" >
+                VueJS é demais !!!
+            </div>
+        </transition>
+
+        <!-- show2 = !show2  é equivalente ao toggle -->
+        <button @click="show2 = !show2" >toggle</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    show: true,
+                    show2: false
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição CSS</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+
+        .primeiro-enter-active {
+            transition: opacity 0.5s ease;
+        }
+        .primeiro-leave-active {
+            transition: opacity 0.5s ease-out;
+        }
+        .primeiro-enter, .primeiro-leave-to {
+            opacity: 0;
+        }
+
+
+        .segundo-enter-active {
+            transition: all 2.5s linear;
+        }
+        .segundo-leave-active {
+            transition: all 3.9s linear;
+        }
+        .segundo-enter, .segundo-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <transition name="primeiro">
+            <h2 v-if="show">HCode Treinamentos</h2>
+        </transition>
+
+        <hr>
+
+        <transition name="segundo">
+            <div v-if="show2" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos suscipit corporis dicta quod cum, 
+                iusto similique sed qui, rerum veniam explicabo distinctio, doloremque vel exercitationem porro! 
+                Voluptates doloribus hic incidunt.
+            </div>
+        </transition>
+
+        <!-- show2 = !show2  é equivalente ao toggle -->
+        <button @click="show2 = !show2" >toggle</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    show: true,
+                    show2: false
+                },
+                
+        })
+
+    </script>
+
+</body>
+</html>

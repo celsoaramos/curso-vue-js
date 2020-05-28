@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos com classes - Objetos</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        .logado {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!--             classeCss: propriedade Vue -->
+        <h1 v-bind:class="{ logado: estaLogado }">Seja bem-vindo ao sistema</h1>
+
+        <hr>
+        
+        <h3 v-bind:class="[classMensagem]">{{ mensagem }}</h3>
+        <!-- OU -->
+        <h3 v-bind:class="[(!this.error) ? 'alert-success' : 'alert-danger']">{{ mensagem }}</h3>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    estaLogado: false,
+                    error: true
+                },
+                computed: {
+                    mensagem: function() {
+                        return (!this.error) ? 'Tudo bem' : 'algo errado';
+                    },
+                    classMensagem: function() {
+                        return (!this.error) ? 'alert-success' : 'alert-danger';
+                    }
+                }
+        })
+
+    </script>
+
+</body>
+</html>
