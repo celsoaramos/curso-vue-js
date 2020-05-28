@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientação da transição</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css" />
+
+    <style>
+        .animacao-fade-enter-active, .animacao-fade-leave-active {
+            transition: opacity .5s ease-in-out;
+        }
+
+        .animacao-fade-enter, .animacao-fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <br><br><br><br><br><br><br><br><br>
+
+        <h2>HCode Treinamentos Animações</h2>
+
+        <input type="text" v-model="nome" />
+
+                                    <!-- mode="in-out" OU out-in -->
+        <transition name="animacao-fade" mode="out-in">
+            <h2 v-if="nome.length > 10" key="success" class="alert-success">Nome válido</h2>
+            <h4 v-else key="error" class="alert-danger">ERRO !!</h4>
+        </transition>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    nome: "Celso Ramos"
+                },
+        })
+
+    </script>
+
+</body>
+</html>
