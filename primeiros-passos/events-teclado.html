@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos</title>
+    <title>Eventos - teclado</title>
 
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css" />
@@ -26,6 +26,11 @@
             <!-- OU -->
             <span @mousemove.stop="parar">PARAR !!!</span>
         </p>
+
+        <hr>
+        <input type="text" @keyup="alerta" placeholder="Alert ao digitar qq coisa">
+        <input type="text" @keyup.enter="alerta" placeholder="Alert ao apertar enter">
+        <input type="text" @keyup.enter.alt="alerta" placeholder="Alert ao apertar enter+alt">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
