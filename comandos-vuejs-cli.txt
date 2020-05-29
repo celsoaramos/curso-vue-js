@@ -50,6 +50,16 @@ Todas as opções da variável binding
 6 - arg -> Se informarmos algum argumento para a diretiva com : (dois-pontos), ele será exibido aqui. Ex.: <img v-blank:argumento>. Será retornado “argumento”
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Modificadores Vue
+
+prevent -> Cancela o comportamento padrão do evento. Similar ao preventDefault()
+stop -> Para a propagação de eventos. Similar ao stopPropagation()
+once -> Executa o evento apenas uma vez (Novidade da versão 2.1)
+self -> Garante que o evento ocorrerá apenas no elemento que foi aplicado, não em elementos filhos
+capture -> Usa o modelo de captura dos eventos para que a propagação de eventos ocorra “de cima para baixo” na árvore do DOM
+passive -> Modificador que melhora a performance na questão da barra de rolagem da aplicação, principalmente nos dispositivos mobile (Novidade da versão 2.3)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Method x computed
 Method é chamado toda vez 
 Computed Properties é chamado uma única vez porque guarda cache.

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template v1</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css" />
+
+    
+</head>
+<body>
+    
+    <div id="app">
+        
+        <div class="container">
+
+            <p></p>
+            
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+                
+
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+                methods: {
+                    enviar(e) {
+                        let form = e.target.form;
+                        let data = new FormData(form);
+
+                        for (let valor of data.entries()) {
+                            console.log(`${valor[0]} : ${valor[1]} `);
+                        }
+                    },
+                    alerta() {
+                        alert('olá');
+                    }
+                }
+        })
+
+    </script>
+
+</body>
+</html>
