@@ -7,7 +7,7 @@
 
     <style>
 
-        #app {
+        .caixas {
             display: flex;
             justify-content: space-around;
         }
@@ -29,14 +29,36 @@
         .c3 {
             background-color: blue;
         }
+
+        .girar {
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 <body>
     
     <div id="app">
-                               <!-- ou 'c1' -->
-        <div class="demo" :class="{ c1: aplicarC1 }" @click="aplicarC1 = !aplicarC1"></div>
-        <div class="demo" :class="{ c1: aplicarC1 }" ></div>
+        <div class="caixas">
+                                <!-- ou 'c1' -->
+            <div class="demo" :class="estiloc1" @click="aplicarC1 = !aplicarC1"></div>
+            <div class="demo" :class="{ c1: aplicarC1 }" ></div>
+            <div class="demo" :class="[classeCss, {'girar': aplicarGirar}]"></div>
+        </div>
+        <input type="text" v-model="classeCss"/>
+
+        <hr>
+
+        <div class="caixas">
+                                    <!-- ou 'background-color' -->
+            <div class="demo" :style="{'backgroundColor': cor}"></div>
+            <div class="demo" :style="meuEstilo"></div>
+            <div class="demo" :style="[meuEstilo, { 'height': altura+'px' }]"></div>
+        </div>
+        <hr>
+
+        <input type="text" v-model="cor"/>
+        <input type="text" v-model="largura"/>
+        <input type="text" v-model="altura"/>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -46,7 +68,28 @@
         const app = new Vue({
                 el: '#app',
                 data: {
-                    aplicarC1: false
+                    aplicarC1: false,
+                    classeCss: 'c1',
+                    aplicarGirar: true,
+                    cor: 'red',
+                    largura: 100,
+                    altura: 50
+                },
+                computed: {
+                    estiloc1() {
+                        return  {
+                            c1: this.aplicarC1,
+                            c2: !this.aplicarC1
+                        }
+                    },
+
+                    meuEstilo() {
+                        return {
+                            backgroundColor: this.cor,
+                            width: `${this.largura}px` // ou this.largura + 'px'
+                        }
+                    }
+                   
                 }
         })
 

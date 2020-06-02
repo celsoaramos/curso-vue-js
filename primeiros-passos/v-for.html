@@ -10,10 +10,12 @@
     <div id="app">
         <h2>Cidades do Brasil com ARRAY</h2>
         <ol>
-            <li v-for="cidade in cidadesArray">
+            <li v-for="cidade in cidadesArray" :key="cidade">
                 {{ cidade }}
             </li>
         </ol>
+        <input type="text" v-model="novaCidade" />
+        <button @click="adicionaCidade">Adicionar</button>
 
         <h2>Cidades do Mundo com objetos</h2>
         <ol>
@@ -30,9 +32,11 @@
         </ul>
 
         <h2>Empresa</h2>
-        <p v-for="(value, key, index) in empresa">
-            {{ key }}: {{ value }} 
+        <p v-for="(valor, chave, index) in empresa">
+            {{ index + 1 }}) {{ chave }}: {{ valor }} 
         </p>
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -42,6 +46,7 @@
         const app = new Vue({
                 el: '#app',
                 data: {
+                    novaCidade: '',
                     cidadesArray: ['RJ', 'SP', 'Curitiba'],
                     filmes: ['Star Wars', 'Jurassic Park', 'De volta para o futuro'],
                     empresa: {
@@ -69,7 +74,11 @@
                     ],
                     
                 },
-                
+                methods: {
+                    adicionaCidade() {
+                        this.cidadesArray.push(this.novaCidade);
+                    }
+                }
         })
 
     </script>
