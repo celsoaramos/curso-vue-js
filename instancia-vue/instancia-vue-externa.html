@@ -6,10 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!--
+         É POSSÍVEL MAS NÃO É RECOMENDADO !! 
+                                            -->
         
     <div id="app">
-        
-        
+        {{ titulo1 }}
+    </div>
+
+    <div id="app2">
+        {{ titulo2 }}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -19,10 +26,19 @@
         const app = new Vue({
                 el: '#app',
                 data: {
-                    
+                    titulo1: "titulo 1",
                 },
                 
         })
+
+        const app2 = new Vue({
+                el: '#app2',
+                data: {
+                    titulo2: "titulo 2",
+                },
+                
+        })
+
 
     </script>
 </body>

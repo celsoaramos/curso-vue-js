@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montando Instância VUE</title>
+</head>
+<body>
+        
+    <div id="app">
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+            el: '#app',
+            template: ` 
+                    <div>
+                        <h1>{{ aula }}</h1>
+                        <h2>{{ modulo }}</h2>
+
+                        <button @click="alterarAula">Alterar Aula</button>
+                        <button @click="alterarModulo">Alterar Módulo</button>
+                    </div>
+            `,
+            data: {
+                aula: "Aula: Usando refs",
+                modulo: "Modulo: Instância VUE",
+            },
+            methods: {
+                alterarAula() {
+                    this.aula += '#';
+                },
+                alterarModulo() {
+                    this.modulo += '#';
+                },
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+    <div id="app">
+        
+        <h1 ref="aulaRef">{{ aula }}</h1>
+        <h2>{{ modulo }}</h2>
+
+        <button @click="alterarAula">Alterar Aula</button>
+        <button @click="alterarModulo">Alterar Módulo</button>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+        
+        const app = new Vue({
+            el: '#app',
+            data: {
+                aula: "Aula: Usando refs",
+                modulo: "Modulo: Instância VUE",
+            },
+            methods: {
+                alterarAula() {
+                    console.log(app.$refs.aulaRef);
+                    this.aula += '#';
+                },
+                alterarModulo() {
+                    this.modulo += '#';
+                },
+            }
+        })
+
+        app.$refs.aulaRef.innerText = 'Alterando diretamente mas não é recomendado =(';
+
+    </script>
+</body>
+</html>

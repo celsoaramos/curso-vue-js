@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de vida</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h1>Hello {{ nome }}</h1>
+
+        <ul>
+            <li v-for="estado in estados">
+                {{ estado. nome }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        const app = new Vue({
+                el: '#app',
+                data: {
+                   nome: "HCode treinamentos",
+                   estados: []
+                },
+                beforeCreate() {
+                    console.log("beforeCreate");
+                },
+                created() {
+                    console.log("created");
+
+                    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+                    .then(response => {
+                        response.json().then(data => {
+                            this.estados = data;
+                        })
+                    }). catch(err => {
+                        console.log(err);
+                    })
+                    
+                },
+                beforeMount() {
+                    console.log("beforeMount");
+                },
+                mounted() {
+                    console.log("mounted");
+                },
+                beforeUpdate() {
+                    console.log("beforeUpdate");
+                },
+                updated() {
+                    console.log("updated");
+                },
+                beforeDestroy() {
+                    console.log("beforeDestroy");
+                },
+                destroyed() {
+                    console.log("destroyed");
+                },
+        })
+
+    </script>
+
+</body>
+</html>
