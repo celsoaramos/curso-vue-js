@@ -5,6 +5,19 @@ vue create nomeProjeto
 // para rodar o servidor
 npm run serve
 
+// build do projeto para gerar a pasta dist
+npm run build
+
+// plugins oficiais começam com
+@vue/cli-plugin-
+
+// os plugins de terceiros começam com
+vue-cli-plugin
+
+// plugins instalados no projeto-plugins
+vue add vuetify           --> para rodar o Vue com material design
+vue add electron-builder  --> para rodar projeto em desktop: npm run electron:serve
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ciclo de vida do VUE:
 1 - beforeCreate() -> Executada assim que a instância Vue é criada, mas antes de os dados, eventos e watchers estarem disponíveis

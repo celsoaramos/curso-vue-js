@@ -1,4 +1,4 @@
-# projeto-simples
+# componente-intro
 
 ## Project setup
 ```
