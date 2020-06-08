@@ -1,3 +1,25 @@
+template:
+
+<template>
+  <div>
+    
+  </div>
+</template>
+
+<script>
+export default {
+
+
+}
+</script>
+
+<style>
+
+
+</style>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // criar projeto usando o vue cli
 vue create nomeProjeto
 
@@ -17,6 +39,10 @@ vue-cli-plugin
 // plugins instalados no projeto-plugins
 vue add vuetify           --> para rodar o Vue com material design
 vue add electron-builder  --> para rodar projeto em desktop: npm run electron:serve
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Utiliza-se <style scoped> para o style ficar somente no componente definido e nos seus filhos, exemplo:
+O componente Contadores utiliza o componente Contador, logo, se definir <style scoped> em CONTADORES o componente Contador também vai "pegar" o css.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ciclo de vida do VUE:
@@ -55,12 +81,12 @@ Parâmetros
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Todas as opções da variável binding
 
-1 - name -> Nome da diretiva, sem o prefixo “v-”
+1 - name -> Nome da diretiva, sem o prefixo "v-"
 2 - value -> Valor informado para a diretiva
 3 - oldValue-> Valor antigo da variável, se ela possuir
 4 - expression -> Expressão JavaScript informada para a diretiva
-5 - modifiers -> Um objeto com todos os modificadores informados. Eles são identificados por meio do .(ponto). Ex.: <p v-native.mod1>. Será retornado “{ mod1: true }”
-6 - arg -> Se informarmos algum argumento para a diretiva com : (dois-pontos), ele será exibido aqui. Ex.: <img v-blank:argumento>. Será retornado “argumento”
+5 - modifiers -> Um objeto com todos os modificadores informados. Eles são identificados por meio do .(ponto). Ex.: <p v-native.mod1>. Será retornado "{ mod1: true }"
+6 - arg -> Se informarmos algum argumento para a diretiva com : (dois-pontos), ele será exibido aqui. Ex.: <img v-blank:argumento>. Será retornado "argumento"
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Modificadores Vue
@@ -69,7 +95,7 @@ prevent -> Cancela o comportamento padrão do evento. Similar ao preventDefault(
 stop -> Para a propagação de eventos. Similar ao stopPropagation()
 once -> Executa o evento apenas uma vez (Novidade da versão 2.1)
 self -> Garante que o evento ocorrerá apenas no elemento que foi aplicado, não em elementos filhos
-capture -> Usa o modelo de captura dos eventos para que a propagação de eventos ocorra “de cima para baixo” na árvore do DOM
+capture -> Usa o modelo de captura dos eventos para que a propagação de eventos ocorra "de cima para baixo" na árvore do DOM
 passive -> Modificador que melhora a performance na questão da barra de rolagem da aplicação, principalmente nos dispositivos mobile (Novidade da versão 2.3)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
