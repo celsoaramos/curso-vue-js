@@ -62,15 +62,13 @@ O componente Contadores utiliza o componente Contador, logo, se definir <style s
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Possíveis Funções ao Criar uma Diretiva
 
-1 - bind() -> Chamada quando a diretiva é vinculada a um elemento
-2 - inserted() -> Chamada quando o elemento vinculado é inserido no DOM
-3 - update() -> Chamada quando o elemento pai do elemento vinculado é atualizado
-4 - unbind() -> Chamada quando a diretiva é desvinculada de um elemento
-5 - componentUpdated() -> Chamada quando o componente é atualizado
+1 - bind(el, binding, vnote) -> Chamada quando a diretiva é vinculada a um elemento, chamada uma única vez. O único parâmetro que deve alterar é o el
+2 - inserted(el, binding, vnote) -> Chamada quando o elemento vinculado é inserido no DOM
+3 - update(el, binding, vnote, oldVNode) -> Quando o componente é atualizado (antes dos filhos)
+4 - componentUpdated(el, binding, vnote, oldVNode) -> Quando o componente é atualizado (depois dos filhos)
+5 - unbind(el, binding, vnode) -> Quando a diretiva é desvinculada do elemento
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Parâmetros
-
 1 - el -> Elemento que a diretiva está vinculada
 2 - binding -> Um objeto que traz informações úteis, como o valor informado para a diretiva(value), o valor antigo(oldValue) e os modificadores(modifiers)
 3 - vnode -> O nó HTML virtual produzido pelo Vue
