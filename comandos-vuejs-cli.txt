@@ -124,6 +124,29 @@ v-enter-to -> opacity: 1   <== tag aparece
 v-leave -> opacity: 1      <== tag aparece
 v-leave-to -> opacity: 0   <== tag escondida
 
+
+v-enter               enter-to             v-leave              v-leave-to
+==============================>  ELEMENTO  ==============================>
+     -----v-active-----                         ----v-leave-active----
+	 
+	 
+	 
+before-enter
+enter
+enter-cancelled
+after-enter
+
+before-leave
+leave
+leave-cancelled
+leave-enter
+
+
+before-enter        after-enter             before-leave       after-leave
+==============================>  ELEMENTO  ==============================>
+  -----enter-----                            ---- leave ----
+  ------ enter cacelled -------              ------ leave cacelled -------	 
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Filters
 Filtros só mudam para a visualização do usuário. Não altera o valor da propriedade.
