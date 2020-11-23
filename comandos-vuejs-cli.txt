@@ -1,23 +1,90 @@
-<template>
-    <div>
+------- COMANDOS POSTGRE ----------------------------
 
-    </div>
-</template>
+// caminho do postegres 
+E:\ambienteDesenvolvimento\PostgreSQL\12\bin
 
-<script>
-export default {
+// entrar na adm do psql, acesso ao terminal
+// é preciso configurar a variável de ambiente path apontando para a pasta bin do plsql
+psql -U postgres
+
+user e senha:
+admin
+
+// para criar um banco de dados:
+CREATE DATABASE knowledge;
+
+// para entrar em um banco
+\c knowledge
+
+// para listar as tabelas do banco
+\dt
+
+// para ver a lista de usuários
+\du
+
+------- COMANDOS MONGO ----------------------------
+
+// mongodb
+//navegar até
+C:\Program Files\MongoDB\Server\4.2\bin
+// digitar
+mongod
+
+------- COMANDOS NODE (BACKEND) ----------------------------
+
+// backend basta digitar:
+npm start
+
+// frontend basta digitar:
+npm run serve
 
 
+------- COMANDOS KNEX (conexão do Node com o Banco) ----------------------------
+// para o projeto backend temos o knex que faz a conexão com o banco
+// para criar o arquivo knexfile.js com a configuração do banco
+knex init  
+
+// para criar tabelas -> para cada tabela é criado um arquivo dentro da pasta migration
+// é preciso configurar cada arquivo
+// serão executadas na ordem
+knex migrate:make create_table_users
+	
+// rodar as migration até a última migration cadastrada no sistema
+knex migrate:latest
+
+// rollback das migrations, vai executar da última para a primeira migrate
+knex migrate:rollback
+
+
+------ USUÁRIOS CRIADOS --------------------
+   {
+        "name": "Celso2 A Ramos",
+        "email": "celso2@gmail.com",
+        "admin": "true",
+        "password" : "123456",
+        "confirmPassword" : "123456"
 }
-</script>
 
-<style>
+   {
+        "name": "Celso3 A Ramos",
+        "email": "celso3@gmail.com",
+        "admin": "false",
+        "password" : "123456",
+        "confirmPassword" : "123456"
+}
 
 
-</style>
-
+   {
+        "email": "celso2@gmail.com",
+        "password" : "123456"
+}
+   {
+        "email": "celso3@gmail.com",
+        "password" : "123456"
+}
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 // criar projeto usando o vue cli
 vue create nomeProjeto
 

@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<h1>Filtros & Mixins (Desafio)</h1>
+		<input type="text" v-model="nome" name="" id="">
 		<!-- Exercício 1 -->
 		<!-- Construir um filtro local que troca espaços por vírgula -->
 		<p>{{ nome | espacoPorVirgula }}</p>
